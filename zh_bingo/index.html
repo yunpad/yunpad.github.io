@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<title>开始制作汉字Bingo游戏</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.min.css" />
+<style type="text/css"></style>
+</head>
+<body>
+<div id="main">
+<h1>制作简单的汉字Bingo游戏</h1>
+<ul class="tabs">
+<li>
+<input type="radio" checked="checked" name="tabs" id="tab1">
+<label for="tab1">游戏卡片制作</label>
+<div id="tab-content1" class="tab-content animated fadeIn">
+<div id="maker" class="content">
+<h2>
+本网页仅用用户提供的最前面18个汉字。空格，逗号，分号，制表键和分行会自动忽略。请使用最新版本的浏览器，旧版本可能不能正常使用。打印卡片时请把页面设为横向。
+</h2>
+<textarea id="characters" placeholder="请在此文本框中输入或拷入汉字"></textarea>
+<div style="margin-top:6px;margin-bottom:2px">
+<div style="float:left">
+<a id="caller" class="tryitbtn">生成 caller 卡片</a>
+<a id="tickets" class="tryitbtn">生成 tickets 卡片</a>
+</div>
+<div style="float:right;margin-top:10px">
+<a href="http://10year.wordpress.com" target="_blank" style="text-decoration:none;font-size:90%;color:#909090">10year.wordpress.com</a>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<p id="alert" align="left" style="height:20px;margin:0"></p>
+</div>
+</li>
+<li>
+<input type="radio" name="tabs" id="tab2">
+<label for="tab2">如何使用</label>
+<div id="tab-content2" class="tab-content animated fadeIn">
+<div id="howto" class="content">
+<h2>本游戏适合2人以上玩</h2>
+<ol>
+<li>在方框里输入你想用的汉字，最前面的18个汉字会被用来玩游戏。</li>
+<li>点击“生成ticket卡片”生成Bingo卡。将Bingo卡打印（请把页面设为横向），每张Bingo卡上有12张票（Bingo Ticket）。如果多于12人玩，可以再点击“生成ticket卡片”生成另一张不同的Bingo卡。将Bingo卡剪开，每人一张票（共三行）。</li>
+<li>点击“生成caller卡片”生成所有18个汉字的卡。将汉字卡片上每个汉字剪下，放在一个盒子或袋子里。</li>
+<li>每人轮流从盒子或袋子抽出一个汉字，读出这个汉字。如果你的票上有这个汉字，用笔将这个汉字标记上（比如用彩笔涂上颜色）。</li>
+<li>当某个人的票上三行汉字全被标记上就可以喊“Bingo”（这个称为“Full House”），他/她就赢了。</li>
+</ol>
+<div style="text-align:right;margin:10px 0">
+<a href="http://10year.wordpress.com" target="_blank" style="text-decoration:none;font-size:90%;color:#909090">10year.wordpress.com</a>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<script type="text/javascript">/*<![CDATA[*/var sc_project=9316159;var sc_invisible=1;var sc_security="e7296a62";var scJsHost=(("https:"==document.location.protocol)?"https://secure.":"http://www.");document.write("<script type='text/javascript' src='"+scJsHost+"statcounter.com/counter/counter.js'><\/script>");/*]]>*/</script>
+<noscript><div class="statcounter"><a title="web analytics" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/9316159/0/e7296a62/1/" alt="web
+analytics"></a></div></noscript>
+</body>
+<script>/*<![CDATA[*/$(document).ready(function(){$("#tabs").tabs();$("#caller, #tickets").click(function(b){console.log(this.id);if(this.id=="caller"){task="caller"}if(this.id=="tickets"){task="tickets"}var a=$("#characters").val().trim();a=a.replace(/[,;；，\t]/g," ").replace(/\s+/g,"").trim();var e=a.split("");var d={task:task,data:e};if(a==""){$("#alert").html("<strong>Warning!</strong> You left the text empty");$("#alert").fadeIn().delay(1000).fadeOut()}else{localStorage.setItem("hanziBingo",JSON.stringify(d));var c=window.open("genBingo.html","_blank");c.focus()}})});/*]]>*/</script>
+</html>
